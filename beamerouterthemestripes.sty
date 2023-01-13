@@ -1,0 +1,39 @@
+\ProvidesPackage{beamerouterthemestripes} 
+
+\mode<presentation>
+
+\setbeamercolor*{author in head/foot}{parent=palette tertiary}
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+\setbeamercolor*{date in head/foot}{parent=palette primary}
+
+\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\def\insertpublications{}
+\def\insertcollaborations{}
+
+\defbeamertemplate*{footline}{infolines theme}
+{
+}
+
+\newcommand\insertheadlinestripes{\raisebox{-1ex}{\insertstripes[width=\paperwidth,height=3.25ex]}}
+
+\defbeamertemplate*{headline}{infolines theme}
+{
+  \leavevmode%
+  \hbox{\hbox to 0pt{\insertheadlinestripes\hss}%
+  \bfseries
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\quad\hyperlinkpresentationend{\pgfsetfillopacity{1}%
+    \insertshortauthor\quad}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\hyperlinkpresentationend{\quad\insertsectionhead}
+	  \hskip 0pt plus 500 fill {\color{white}\insertframenumber{} / \inserttotalframenumber\quad}
+  \end{beamercolorbox}\pgfsetfillopacity{1}}%
+  \vskip0pt%
+}
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+\mode<all>
