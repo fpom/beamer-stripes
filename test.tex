@@ -1,6 +1,8 @@
 \documentclass{beamer}
 
 \usetheme{stripes}
+\usepackage{fancyvrb}
+\usepackage{relsize}
 
 \begin{document}
 
@@ -13,15 +15,28 @@
 
 \section{Section title goes here}
 
-\begin{frame}{Bye bye world}
+\begin{frame}[fragile]{Bye bye world}
   \begin{itemize}
-  \item normal text, \alert{alerted text}
-  \item predefined colors:
+    \item normal text, \alert{alerted text}
+    \item predefined colors:
     \begin{itemize}
-    \item {\color{stripesdarkblue}stripesdarkblue}
-    \item {\color{stripeslightblue}stripeslightblue}
-    \item {\color{stripeslightred}stripeslightred}
-    \item {\color{stripesdarkred}stripesdarkred}
+      \item {\color{stripesdarkblue}stripesdarkblue}
+      \item {\color{stripeslightblue}stripeslightblue}
+      \item {\color{stripeslightred}stripeslightred}
+      \item {\color{stripesdarkred}stripesdarkred}
+    \end{itemize}
+    \item customization:
+    \begin{itemize}
+      \item redefine \Verb|\insertheadline| to customize headline content, default to
+        \begin{Verbatim}[fontsize=\relsize{-2}]
+\insertheadlinepart{.5}{right}{white}{\insertshortauthor}
+\insertheadlinepart{.4}{left}{stripesdarkblue}{\insertsectionhead}
+\insertheadlinepart{.1}{right}{white}{{\insertframenumber} / {\inserttotalframenumber}}
+        \end{Verbatim}
+      \item \Verb|\insertheadlinepart{width}{align}{color}{text}|
+        inserts text in headline, \Verb|width| is a fraction of page width (e.g., \Verb|.5|)
+      \item set length \Verb|stripesheadsep| (default: \texttt{.5em})
+        to adjust space at beginning/end of headline parts
     \end{itemize}
   \end{itemize}
 \end{frame}

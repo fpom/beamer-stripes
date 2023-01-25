@@ -16,21 +16,26 @@
 {
 }
 
+\newlength\stripesheadsep
+\setlength\stripesheadsep{.5em}
 \newcommand\insertheadlinestripes{\raisebox{-1ex}{\insertstripes[width=\paperwidth,height=3.25ex]}}
+\newcommand\insertheadlinepart[4]{%
+  \begin{beamercolorbox}[wd=#1\paperwidth,ht=2.25ex,dp=1ex,#2]{#3}%
+    \hspace*{\stripesheadsep}\ignorespaces #4\hspace*{\stripesheadsep}%
+  \end{beamercolorbox}%
+  \ignorespaces
+}
+\newcommand\insertheadline{%
+  \insertheadlinepart{.5}{right}{author in head/foot}{\insertshortauthor}
+  \insertheadlinepart{.4}{left}{section in head/foot}{\insertsectionhead}
+  \insertheadlinepart{.1}{right}{page number in head/foot}{{\insertframenumber} / {\inserttotalframenumber}}
+}
 
 \defbeamertemplate*{headline}{infolines theme}
 {
   \leavevmode%
   \hbox{\hbox to 0pt{\insertheadlinestripes\hss}%
-  \bfseries
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\quad\hyperlinkpresentationend{\pgfsetfillopacity{1}%
-    \insertshortauthor\quad}%
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{section in head/foot}%
-    \usebeamerfont{section in head/foot}\hyperlinkpresentationend{\quad\insertsectionhead}
-	  \hskip 0pt plus 500 fill {\color{white}\insertframenumber{} / \inserttotalframenumber\quad}
-  \end{beamercolorbox}\pgfsetfillopacity{1}}%
+        \bfseries\insertheadline}%
   \vskip0pt%
 }
 
