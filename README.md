@@ -1,10 +1,11 @@
-# Warming Stripes beamer theme
+# Warming and Biodiversity Stripes beamer theme
 
 This is a theme for LaTeX/beamer, based on the original default theme with basic changes:
 
- * insert the [warming stripes](https://www.climate-lab-book.ac.uk/2018/warming-stripes/) as headline background
- * redefine default colours for titles, alerts, etc., to match the stripes
- * redefine the content of headline
+- insert the [warming stripes](https://www.climate-lab-book.ac.uk/2018/warming-stripes/) as headline background
+- insert the[biodiversity stripes](https://biodiversitystripes.info/global/) as footline background
+- redefine default colours for titles, alerts, etc., to match the (warming) stripes
+- redefine the content of headline and footline
 
 See file `test.tex` for an example, and `test.pdf` for its PDF rendering.
 
