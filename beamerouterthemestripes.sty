@@ -12,32 +12,28 @@
 \def\insertpublications{}
 \def\insertcollaborations{}
 
-\defbeamertemplate*{footline}{infolines theme}
-{
-}
-
 \newlength\stripesheadsep
 \setlength\stripesheadsep{.5em}
-\newcommand\insertheadlinestripes{\raisebox{-1ex}{\insertstripes[width=\paperwidth,height=3.25ex]}}
-\newcommand\insertheadlinepart[4]{%
-  \begin{beamercolorbox}[wd=#1\paperwidth,ht=2.25ex,dp=1ex,#2]{#3}%
-    \hspace*{\stripesheadsep}\ignorespaces #4\hspace*{\stripesheadsep}%
+\newcommand\insertstripes[1]{\raisebox{-1ex}{\includegraphics[width=\paperwidth,height=3.25ex]{#1}}}
+\newcommand\insertstripespart[4]{%
+  \begin{beamercolorbox}[wd=#1\paperwidth,ht=2.25ex,dp=1ex,#2]{}%
+    \hspace*{\stripesheadsep}\color{#3}\ignorespaces #4\hspace*{\stripesheadsep}%
   \end{beamercolorbox}%
   \ignorespaces
 }
 \newcommand\insertheadline{%
-  \insertheadlinepart{.5}{right}{author in head/foot}{\insertshortauthor}
-  \insertheadlinepart{.4}{left}{section in head/foot}{\insertsectionhead}
-  \insertheadlinepart{.1}{right}{page number in head/foot}{{\insertframenumber} / {\inserttotalframenumber}}
+  \insertstripespart{.5}{right}{author in head/foot}{\insertshortauthor}
+  \insertstripespart{.4}{left}{section in head/foot}{\insertsectionhead}
+  \insertstripespart{.1}{right}{page number in head/foot}{{\insertframenumber} / {\inserttotalframenumber}}
 }
-
-\defbeamertemplate*{headline}{infolines theme}
-{
-  \leavevmode%
-  \hbox{\hbox to 0pt{\insertheadlinestripes\hss}%
-        \bfseries\insertheadline}%
+\newcommand\insertfootline{}
+\newcommand\makestripes[2]{\leavevmode%
+  \hbox{\hbox to 0pt{\insertstripes{#1}\hss}\bfseries#2}%
   \vskip0pt%
 }
+
+\defbeamertemplate*{headline}{infolines theme}{\makestripes{climat}\insertheadline}
+\defbeamertemplate*{footline}{infolines theme}{\makestripes{biodiv}\insertfootline}
 
 \setbeamersize{text margin left=1em,text margin right=1em}
 

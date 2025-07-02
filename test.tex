@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 \usetheme{stripes}
 \usepackage{fancyvrb}
@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\title{Warming Stripes}
+\title{Warming and Biodiversity Stripes}
 \subtitle{beamer theme}
 \author{Franck Pommereau}
 \date{\color{stripesdarkred}(you are here)}
@@ -15,7 +15,7 @@
 
 \section{Section title goes here}
 
-\begin{frame}[fragile]{Bye bye world}
+\begin{frame}[fragile]{Basis}
   \begin{itemize}
     \item normal text, \alert{alerted text}
     \item predefined colors:
@@ -25,19 +25,37 @@
       \item {\color{stripeslightred}stripeslightred}
       \item {\color{stripesdarkred}stripesdarkred}
     \end{itemize}
-    \item customization:
-    \begin{itemize}
-      \item redefine \Verb|\insertheadline| to customize headline content, default to
-        \begin{Verbatim}[fontsize=\relsize{-2}]
-\insertheadlinepart{.5}{right}{white}{\insertshortauthor}
-\insertheadlinepart{.4}{left}{stripesdarkblue}{\insertsectionhead}
-\insertheadlinepart{.1}{right}{white}{{\insertframenumber} / {\inserttotalframenumber}}
-        \end{Verbatim}
-      \item \Verb|\insertheadlinepart{width}{align}{color}{text}|
-        inserts text in headline, \Verb|width| is a fraction of page width (e.g., \Verb|.5|)
-      \item set length \Verb|stripesheadsep| (default: \texttt{.5em})
-        to adjust space at beginning/end of headline parts
-    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Customize headline}
+  \begin{itemize}
+    \item redefine \Verb|\insertheadline| to customize headline content, default to
+      \begin{Verbatim}[fontsize=\relsize{-2}]
+\insertstripespart{.5}{right}{white}{\insertshortauthor}
+\insertstripespart{.4}{left}{stripesdarkblue}{\insertsectionhead}
+\insertstripespart{.1}{right}{white}{{\insertframenumber} / {\inserttotalframenumber}}
+      \end{Verbatim}
+    \item \Verb|\insertstripespart{width}{align}{color}{text}|
+      inserts text in headline, \Verb|width| is a fraction of page width (e.g., \Verb|.5|)
+    \item set length \Verb|stripesheadsep| (default: \texttt{.5em})
+      to adjust space at beginning/end of headline parts
+    \item change headline theme, default to:
+      \begin{Verbatim}[fontsize=\relsize{-2}]
+\defbeamertemplate*{headline}{infolines theme}{%
+  \makestripes{climat}\insertheadline}
+      \end{Verbatim}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Customize footline}
+  \begin{itemize}
+    \item redefine \Verb|\insertfootline| like for headline (default: empty macro)
+    \item change headline theme, default to:
+      \begin{Verbatim}[fontsize=\relsize{-2}]
+\defbeamertemplate*{footline}{infolines theme}{%
+  \makestripes{biodiv}\insertheadline}
+      \end{Verbatim}
   \end{itemize}
 \end{frame}
 
