@@ -45,16 +45,24 @@
 \defbeamertemplate*{headline}{infolines theme}{%
   \makestripes{climat}\insertheadline}
       \end{Verbatim}
+    \item remove headline:
+      \begin{Verbatim}[fontsize=\relsize{-2}]
+\setbeamertemplate{headline}[nohead]
+      \end{Verbatim}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Customize footline}
   \begin{itemize}
     \item redefine \Verb|\insertfootline| like for headline (default: empty macro)
-    \item change headline theme, default to:
+    \item change footline theme, default to:
       \begin{Verbatim}[fontsize=\relsize{-2}]
 \defbeamertemplate*{footline}{infolines theme}{%
   \makestripes{biodiv}\insertheadline}
+      \end{Verbatim}
+    \item remove footline:
+      \begin{Verbatim}[fontsize=\relsize{-2}]
+\setbeamertemplate{footline}[nofoot]
       \end{Verbatim}
   \end{itemize}
 \end{frame}
